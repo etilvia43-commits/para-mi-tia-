@@ -1,3 +1,4 @@
+css
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 * {
@@ -10,11 +11,15 @@ body {
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
     overflow-x: hidden;
-    background: radial-gradient(circle at top, #050816, #000000 70%);
+    overflow-y: auto;
+    background:
+        radial-gradient(circle at top, rgba(35, 40, 90, 0.9), transparent 40%),
+        radial-gradient(circle at bottom, rgba(120, 80, 20, 0.35), transparent 35%),
+        linear-gradient(to bottom, #02030d, #050816 45%, #000000 100%);
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 20px;
+    align-items: flex-start;
+    padding: 40px 15px 120px;
     position: relative;
 }
 
@@ -27,12 +32,22 @@ body {
     left: 0;
     background-image:
         radial-gradient(white 1px, transparent 1px),
-        radial-gradient(#ffd700 1px, transparent 1px),
-        radial-gradient(white 2px, transparent 2px);
-    background-size: 60px 60px, 120px 120px, 180px 180px;
-    animation: moveStars 60s linear infinite;
-    opacity: 0.7;
+        radial-gradient(rgba(255,255,255,0.8) 2px, transparent 2px),
+        radial-gradient(rgba(255,215,0,0.8) 1px, transparent 1px),
+        radial-gradient(rgba(173,216,230,0.6) 2px, transparent 2px);
+    background-size: 70px 70px, 140px 140px, 220px 220px, 300px 300px;
+    animation: moveStars 80s linear infinite;
+    opacity: 0.9;
     z-index: 0;
+}
+
+.stars::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 70%);
+    filter: blur(40px);
 }
 
 @keyframes moveStars {
@@ -165,12 +180,14 @@ body {
     top: 20px;
     left: 50%;
     transform: translateX(-50%) scale(0.5);
-    width: 90vw;
+    width: 92vw;
     max-width: 850px;
-    background: rgba(0, 0, 0, 0.85);
+    max-height: 85vh;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, 0.82);
     border: 2px solid rgba(255, 215, 0, 0.6);
     border-radius: 30px;
-    padding: 45px 30px;
+    padding: 45px 30px 70px;
     color: white;
     opacity: 0;
     pointer-events: none;
@@ -228,33 +245,63 @@ h1 {
 @media (max-width: 768px) {
 
     body {
-        padding: 15px;
+        padding: 20px 10px 140px;
+        align-items: flex-start;
     }
 
     .envelope {
-        width: 260px;
-        height: 180px;
+        width: 240px;
+        height: 170px;
+        margin-top: 40px;
     }
 
     .letter {
-        padding: 30px 20px;
+        width: 95vw;
+        max-height: 82vh;
+        padding: 28px 18px 60px;
+        border-radius: 24px;
     }
 
     h1 {
-        font-size: 2rem;
+        font-size: 1.9rem;
+        line-height: 1.3;
     }
 
     .photo {
-        width: 200px;
+        width: 180px;
     }
 
     .message {
-        font-size: 0.98rem;
-        line-height: 1.8;
+        font-size: 0.95rem;
+        line-height: 1.9;
+    }
+
+    .message p {
+        margin-bottom: 20px;
     }
 
     .flowers::before,
     .flowers::after {
-        font-size: 35px;
+        font-size: 28px;
+    }
+
+    #openBtn {
+        font-size: 1rem;
+        padding: 12px 24px;
     }
 }
+
+/* Scroll bonito */
+.letter::-webkit-scrollbar {
+    width: 8px;
+}
+
+.letter::-webkit-scrollbar-thumb {
+    background: rgba(255, 215, 0, 0.7);
+    border-radius: 20px;
+}
+
+.letter::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.05);
+}
+
