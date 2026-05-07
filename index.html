@@ -9,72 +9,96 @@
 <body>
 
     <div class="stars"></div>
-    <div class="shooting-container">
-        <span class="shooting-star"></span>
-        <span class="shooting-star"></span>
-        <span class="shooting-star"></span>
-        <span class="shooting-star"></span>
-    </div>
+    <div class="shooting-stars"></div>
+    <div class="flowers"></div>
 
-    <div class="sunflower sunflower-left">🌻</div>
-    <div class="sunflower sunflower-right">🌻</div>
+    <div class="envelope-container" id="envelopeContainer">
 
-    <div class="card">
+        <div class="envelope" id="envelope">
+            <div class="front"></div>
+            <div class="flap"></div>
 
-        <h1>Feliz Cumpleaños, tía 💛</h1>
-
-        <img src="foto.jpg" alt="Foto especial" class="photo">
-
-        <div class="message">
-            <p>
-                Tía de mi corazón, hoy te deseo un feliz y bendecido cumpleaños.
-                Te escribo esta carta para decirte algunas cosas:
-            </p>
-
-            <p>
-                <strong>Primero</strong>, eres un ser maravilloso lleno de luz.☀️
-            </p>
-
-            <p>
-                <strong>Segundo</strong>, no dejes que nada ni nadie apague tu brillo.
-                Eres la razón por la que muchas personas desearían tener eso
-                que solo Dios te concedió a ti.✨️
-            </p>
-
-            <p>
-                <strong>Tercero</strong>, nunca dejes de ser auténtica.
-                Ser tú siempre será tu sello. No permitas que nada ni nadie
-                cambie tu corazón.❤️
-            </p>
-
-            <p>
-                <strong>Cuarto</strong>, de todo corazón espero que encuentres
-                felicidad en todo lo que haces y cumplas todos esos sueños
-                de los que hablamos.💭
-            </p>
-
-            <p>
-                Y por último, recuerda que todo tiene su tiempo.
-                No te desesperes. Eres valiosa, importante y, sobre todo,
-                una gran persona. Una de esas que todos deseamos tener
-                una vez en la vida. No dejes que nada ni nadie te haga
-                pensar diferente.🫰🏽👸🏼
-            </p>
-
-            <p class="love">
-                Te quiero muchísimo. 💛
-            </p>
-
-            <p class="pd">
-                P.D.: Queda pendiente el regalo 🎁💅🤣
-            </p>
+            <button id="openBtn">💌 Ábreme</button>
         </div>
 
-        <audio controls autoplay loop>
-            <source src="cancion.mp3" type="audio/mpeg">
-        </audio>
+        <div class="letter" id="letter">
+
+            <h1>Feliz Cumpleaños, tía 💛</h1>
+
+            <img src="foto.jpg" alt="Foto especial" class="photo">
+
+            <div class="message">
+                <p>
+                    Tía de mi corazón, hoy te deseo un feliz y bendecido cumpleaños.
+                    Te escribo esta carta para decirte algunas cosas:
+                </p>
+
+                <p><strong>Primero</strong>, eres un ser maravilloso lleno de luz.☀️</p>
+
+                <p>
+                    <strong>Segundo</strong>, no dejes que nada ni nadie apague tu brillo.
+                    Eres la razón por la que muchas personas desearían tener eso
+                    que solo Dios te concedió a ti.✨️
+                </p>
+
+                <p>
+                    <strong>Tercero</strong>, nunca dejes de ser auténtica.
+                    Ser tú siempre será tu sello.
+                    No permitas que nada ni nadie cambie tu corazón.❤️
+                </p>
+
+                <p>
+                    <strong>Cuarto</strong>, de todo corazón espero que encuentres
+                    felicidad en todo lo que haces y cumplas todos esos sueños
+                    de los que hablamos.💭
+                </p>
+
+                <p>
+                    Y por último, recuerda que todo tiene su tiempo.
+                    No te desesperes. Eres valiosa, importante y, sobre todo,
+                    una gran persona. Una de esas que todos deseamos tener
+                    una vez en la vida.
+                    No dejes que nada ni nadie te haga pensar diferente.🫰🏽👸🏼
+                </p>
+
+                <p class="love">Te quiero muchísimo 💛</p>
+
+                <p class="pd">
+                    P.D.: Queda pendiente el regalo 🎁💅🤣
+                </p>
+            </div>
+
+        </div>
 
     </div>
+
+    <audio id="music" loop>
+        <source src="cancion.mp3" type="audio/mpeg">
+    </audio>
+
+<script>
+
+const button = document.getElementById('openBtn');
+const envelope = document.getElementById('envelope');
+const letter = document.getElementById('letter');
+const music = document.getElementById('music');
+
+button.addEventListener('click', () => {
+
+    envelope.classList.add('open');
+
+    setTimeout(() => {
+        letter.classList.add('show');
+    }, 1200);
+
+    music.play();
+
+    button.style.display = 'none';
+
+});
+
+</script>
 
 </body>
 </html>
+
